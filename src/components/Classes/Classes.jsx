@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
-import useAdmin from './../../hooks/useAdmin';
-import useInstructor from './../../hooks/useInstructor';
+import { AuthContext } from "../../Providers/AuthProviders";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 
 const Classes = () => {
