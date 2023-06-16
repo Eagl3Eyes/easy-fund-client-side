@@ -10,6 +10,7 @@ import Login from './components/Home/Login/Login.jsx'
 import Register from './components/Home/Register/Register.jsx'
 import axios from 'axios'
 import Classes from './components/Classes/Classes'
+import Instructors from './components/Instructors/Instructors'
 
 
 
@@ -36,7 +37,10 @@ const router = createBrowserRouter([
         path: '/classes',
         element: <Classes />,
         loader: () => axios('http://localhost:5000/classes')
-
+      },
+      {
+        path: '/instructors',
+        element: <Instructors />
       }
     ]
   }
