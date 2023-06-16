@@ -16,6 +16,7 @@ import PrivateRoute from './routes/PrivateRoute'
 import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome'
 import StudentPrivate from './routes/StudentPrivate'
 import SelectedClasses from './components/Dashboard/DashboardStudent/SelectedClasses'
+import Payment from './components/Dashboard/DashboardStudent/Payment'
 
 
 
@@ -60,7 +61,11 @@ const router = createBrowserRouter([
       {
         path: 'studentClasses',
         element: <StudentPrivate><SelectedClasses /></StudentPrivate>
-      }
+      },
+      {
+        path: 'studentClasses/pay/:id',
+        element: <StudentPrivate><Payment /></StudentPrivate>
+      },
     ]
   }
 ])
