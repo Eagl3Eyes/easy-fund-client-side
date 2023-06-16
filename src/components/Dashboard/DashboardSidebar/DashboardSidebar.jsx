@@ -35,9 +35,9 @@ const DashboardSidebar = () => {
         {
             isInstructor?.role === 'instructor' &&
             <>
-                <NavLink to='/dashboard/instructorAddClass' className='btn hover:text-info font-semibold uppercase'><FiMessageSquare></FiMessageSquare>Add a Class</NavLink>
+                <NavLink to='/dashboard/instructorAddNewClass' className='btn hover:text-info font-semibold uppercase'><FiMessageSquare></FiMessageSquare>Add a Class</NavLink>
 
-                <NavLink to='/dashboard/instructorMyClasses' className='btn hover:text-info font-semibold uppercase'><FiCalendar></FiCalendar>My Classes</NavLink>
+                <NavLink to='/dashboard/instructorsClasses' className='btn hover:text-info font-semibold uppercase'><FiCalendar></FiCalendar>My Classes</NavLink>
             </>
         }
         {

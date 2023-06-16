@@ -20,6 +20,8 @@ import Payment from './components/Dashboard/DashboardStudent/Payment'
 import PaymentHistory from './components/Dashboard/DashboardStudent/PaymentHistory'
 import EnrolledClasses from './components/Dashboard/DashboardStudent/EnrolledClasses'
 import InstructorPrivate from './routes/InstructorPrivate'
+import AddNewClass from './components/Dashboard/DashboardInstructor/AddNewClass'
+import InstructorsClasses from './components/Dashboard/DashboardInstructor/InstructorsClasses'
 
 
 
@@ -78,9 +80,21 @@ const router = createBrowserRouter([
         element: <StudentPrivate><PaymentHistory /></StudentPrivate>
       },
       {
-        path: 'instructorAddClass',
-        element: <InstructorPrivate></InstructorPrivate>
+        path: 'instructorAddNewClass',
+        element: <InstructorPrivate><AddNewClass /></InstructorPrivate>
       },
+      {
+        path: 'instructorsClasses',
+        element: <InstructorPrivate><InstructorsClasses /></InstructorPrivate>
+      },
+      {
+        path: 'admin/manageUsers',
+        element: <AdminPrivate></AdminPrivate>
+      },
+      {
+        path: 'admin/manageClasses',
+        element: <AdminPrivate><ManageClasses /></AdminPrivate>
+      }
     ]
   }
 ])
