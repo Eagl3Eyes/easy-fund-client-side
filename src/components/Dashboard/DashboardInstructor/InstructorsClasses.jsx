@@ -15,7 +15,7 @@ const InstructorsClasses = () => {
             .then(res => setInstructorData(res.data))
     }, [])
     const enrolledStudents = instructorData.reduce((sum, item) => sum + item.enrolled, 0)
-    console.log(instructorData);
+    // console.log(instructorData);
 
 
     return (

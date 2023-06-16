@@ -41,7 +41,7 @@ const Register = () => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                console.log(data);
+                                // console.log(data);
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Register Successfull',
@@ -80,7 +80,7 @@ const Register = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(loggedUser);
+                        // console.log(loggedUser);
                         Swal.fire({
                             icon: 'success',
                             title: 'Register Successfull',

@@ -15,7 +15,7 @@ const ManageUsers = () => {
     }, [])
 
     const handleRoleUpdate = (role, email) => {
-        console.log(role, email);
+        // console.log(role, email);
         axios.patch(`https://summer-camp-server-tau-three.vercel.app/all-users-data/?email=${email}&role=${role}`)
             .then(res => {
                 if (res.data.acknowledged) {

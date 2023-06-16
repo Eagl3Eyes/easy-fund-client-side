@@ -19,7 +19,7 @@ const ManageClasses = () => {
 
     const openModal = (item, status) => {
         setSelectedItem(item); // Set the selected item when the modal is opened
-        console.log(status);
+        // console.log(status);
         setStaus(status);
         window.my_modal_1.showModal(); // Show the modal
     };
@@ -30,7 +30,7 @@ const ManageClasses = () => {
 
         axios.patch(`https://summer-camp-server-tau-three.vercel.app/all-classes-data?id=${selectedItem._id}&feedback=${feedback}&status=${status}`)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.acknowledged) {
                     axiosSecure.get('/all-classes-data')
                         .then(res => setAllLectures(res.data))

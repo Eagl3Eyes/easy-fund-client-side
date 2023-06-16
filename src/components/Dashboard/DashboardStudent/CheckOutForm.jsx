@@ -52,7 +52,7 @@ const CheckOutForm = ({ price, lectureId, lecture }) => {
         })
 
         if (error) {
-            console.log('error', error)
+            // console.log('error', error)
             setCardError(error.message);
             Swal.fire(
                 error.message,
@@ -80,10 +80,10 @@ const CheckOutForm = ({ price, lectureId, lecture }) => {
         );
 
         if (confirmError) {
-            console.log(confirmError);
+            // console.log(confirmError);
         }
 
-        console.log('payment intent', paymentIntent)
+        // console.log('payment intent', paymentIntent)
         setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
@@ -99,7 +99,7 @@ const CheckOutForm = ({ price, lectureId, lecture }) => {
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     if (res.data) {
                         // display confirm
 

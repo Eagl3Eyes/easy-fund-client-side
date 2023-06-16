@@ -34,7 +34,7 @@ const AddNewClass = () => {
 
         axios.post('https://summer-camp-server-tau-three.vercel.app/classes', lectureData)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 if (res.data.acknowledged) {
                     Swal.fire({
                         icon: 'success',

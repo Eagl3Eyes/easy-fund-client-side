@@ -23,12 +23,12 @@ const Login = () => {
 
 
     const onSubmit = data => {
-        console.log(data);
+        // console.log(data);
         const { email, password } = data;
         logIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 Swal.fire({
                     icon: 'success',
                     title: 'Login Successfull',
@@ -47,7 +47,7 @@ const Login = () => {
         googleLogIn()
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 const savedUser = { name: loggedUser.displayName, email: loggedUser.email, role: 'student', image: loggedUser.photoURL }
                 fetch('https://summer-camp-server-tau-three.vercel.app/users', {
                     method: 'POST',
