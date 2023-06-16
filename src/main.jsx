@@ -2,8 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Main from './LayOut/Main.jsx'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import AuthProvider from './Providers/AuthProviders.jsx'
+import Home from './components/Home/Home/Home.jsx'
 
 
 const router = createBrowserRouter([
@@ -12,7 +15,8 @@ const router = createBrowserRouter([
     element: <Main />,
     children: [
       {
-        path: '/'
+        path: '/',
+        element: <Home />
       }
     ]
   }
@@ -20,6 +24,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={QueryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 )

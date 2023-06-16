@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.13",
     "axios": "^1.4.0",
     "firebase": "^9.22.2",
     "localforage": "^1.10.0",
@@ -17,8 +18,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.13.0",
+    "react-simple-typewriter": "^5.0.1",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.7.12"
+    "sweetalert2": "^11.7.12",
+    "swiper": "^9.4.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
