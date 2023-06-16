@@ -10,30 +10,10 @@ const PopularClasses = () => {
     }, [])
 
 
+
     return (
-        // <article className='mt-40'>
-
-        //     <span className='text-5xl font-bold uppercase text-center mb-10'>
-        //         <p>{`Popular Classes`}</p>
-        //     </span>
-        //     <figure className='grid grid-cols-1 md:grid-cols-3 justify-items-center gap-10 md:mx-40 mx-5 my-14'>
-        //         {
-        //             data?.map((item, index) =>
-        //                 <img
-        //                     key={index}
-        //                     className='rounded-2xl shadow-neutral-400 shadow-2xl w-[400px] h-[250px]'
-        //                     src={item.image}
-        //                 />
-        //             )
-        //         }
-        //     </figure>
-        // </article>
-
-
-
-
-        <div className='mt-40'>
-            <span className='text-5xl font-bold uppercase text-center mb-10'>
+        <div className="mt-40">
+            <span className="text-5xl font-bold uppercase text-center mb-10">
                 <p>{`Popular Classes`}</p>
             </span>
             <section class="py-10">

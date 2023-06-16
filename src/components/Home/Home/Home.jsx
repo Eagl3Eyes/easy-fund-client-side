@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 
 const Home = () => {
     useTitle('Home')
+
     return (
         <motion.section
             initial={{ width: 0 }}
