@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Providers/AuthProvider';
+import { AuthContext } from '../../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 
 const Navbar = ({ toggle, setToggle }) => {
