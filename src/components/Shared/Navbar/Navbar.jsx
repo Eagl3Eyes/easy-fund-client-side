@@ -24,8 +24,8 @@ const Navbar = ({ toggle, setToggle }) => {
 
     const navItems = <>
         <li className='hover:text-info uppercase font-semibold'><Link>Home</Link></li>
-        <li className='hover:text-info uppercase font-semibold'><Link to='/instructors'>Instructors</Link></li>
         <li className='hover:text-info uppercase font-semibold'><Link to='/classes'>Classes</Link></li>
+        <li className='hover:text-info uppercase font-semibold'><Link to='/instructors'>Instructors</Link></li>
 
 
         {

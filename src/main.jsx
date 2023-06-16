@@ -8,6 +8,8 @@ import AuthProvider from './Providers/AuthProviders.jsx'
 import Home from './components/Home/Home/Home.jsx'
 import Login from './components/Home/Login/Login.jsx'
 import Register from './components/Home/Register/Register.jsx'
+import axios from 'axios'
+import Classes from './components/Classes/Classes'
 
 
 
@@ -30,6 +32,12 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />
       },
+      {
+        path: '/classes',
+        element: <Classes />,
+        loader: () => axios('http://localhost:5000/classes')
+
+      }
     ]
   }
 ])
