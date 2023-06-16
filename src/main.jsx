@@ -11,6 +11,7 @@ import Register from './components/Home/Register/Register.jsx'
 import axios from 'axios'
 import Classes from './components/Classes/Classes'
 import Instructors from './components/Instructors/Instructors'
+import Dashboard from './components/Dashboard/Dashboard/Dashboard'
 
 
 
@@ -41,6 +42,15 @@ const router = createBrowserRouter([
       {
         path: '/instructors',
         element: <Instructors />
+      }
+    ]
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard />,
+    children: [
+      {
+
       }
     ]
   }
