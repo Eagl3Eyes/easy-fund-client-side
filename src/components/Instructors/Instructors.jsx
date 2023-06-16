@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { UserCard } from 'react-ui-cards';
+import useTitle from "../../hooks/useTitle";
 
 const Instructors = () => {
+    useTitle('Instructors')
+
     const [teachers, setTeachers] = useState([]);
 
     useEffect(() => {

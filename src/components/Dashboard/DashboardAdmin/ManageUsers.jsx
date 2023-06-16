@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useTitle from '../../../hooks/useTitle';
 
 const ManageUsers = () => {
+    useTitle('Manage Users')
+
     const [allUsers, setAllUsers] = useState([]);
     const [axiosSecure] = useAxiosSecure();
     useEffect(() => {

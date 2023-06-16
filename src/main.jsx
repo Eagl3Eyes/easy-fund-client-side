@@ -25,6 +25,7 @@ import InstructorsClasses from './components/Dashboard/DashboardInstructor/Instr
 import AdminPrivate from './routes/AdminPrivate'
 import ManageUsers from './components/Dashboard/DashboardAdmin/ManageUsers'
 import ManageClasses from './components/Dashboard/DashboardAdmin/ManageClasses'
+import ErrorPage from './components/Shared/ErrorPage/ErrorPage'
 
 
 
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
         element: <AdminPrivate><ManageClasses /></AdminPrivate>
       }
     ]
+  },
+  {
+    path: '*',
+    element: <ErrorPage />
   }
 ])
 

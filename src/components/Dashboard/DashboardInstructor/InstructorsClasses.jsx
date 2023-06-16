@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useTitle from '../../../hooks/useTitle';
 
 const InstructorsClasses = () => {
+    useTitle('My Class')
+
     const { user } = useContext(AuthContext);
     const [axiosSecure] = useAxiosSecure();
     const [instructorData, setInstructorData] = useState([]);

@@ -5,8 +5,11 @@ import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const Register = () => {
+    useTitle('Register')
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { googleLogIn, createUser, updateUserProfile } = useContext(AuthContext);
     const navigete = useNavigate();

@@ -4,10 +4,13 @@ import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import useTitle from '../../../hooks/useTitle';
 
 
 
 const AddNewClass = () => {
+    useTitle('Add Class')
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext);
     const [disabled, setDisabled] = useState(false);

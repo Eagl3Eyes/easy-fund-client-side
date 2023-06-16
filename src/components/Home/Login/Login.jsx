@@ -5,10 +5,13 @@ import { FaEye, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import useTitle from "../../../hooks/useTitle";
 
 
 
 const Login = () => {
+    useTitle('Login')
+
     const { logIn, googleLogIn } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [view, setView] = useState(false);

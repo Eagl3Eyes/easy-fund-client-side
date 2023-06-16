@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useTitle from '../../../hooks/useTitle';
 
 const ManageClasses = () => {
+    useTitle('Manage Classes')
+
     const [allLectures, setAllLectures] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
     const [status, setStaus] = useState(null);

@@ -4,8 +4,11 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useTitle from '../../../hooks/useTitle';
 
 const SelectedClasses = () => {
+    useTitle('Selected Class')
+
     const [isStudent, , refetch] = useStudent();
 
     const handleDeleteLecture = (id) => {

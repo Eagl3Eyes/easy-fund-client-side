@@ -5,9 +5,12 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProviders";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
+import useTitle from "../../hooks/useTitle";
 
 
 const Classes = () => {
+    useTitle('Classes')
+
     const { data } = useLoaderData();
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();

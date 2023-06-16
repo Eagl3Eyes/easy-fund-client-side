@@ -5,8 +5,11 @@ import { loadStripe } from '@stripe/stripe-js';
 import CheckOutForm from './CheckOutForm';
 import { useParams } from 'react-router-dom';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useTitle from '../../../hooks/useTitle';
 
 const Payment = () => {
+    // useTitle('Payment')
+
     const { id } = useParams();
     const [axiosSecure] = useAxiosSecure();
     const [price, setPrice] = useState(null);

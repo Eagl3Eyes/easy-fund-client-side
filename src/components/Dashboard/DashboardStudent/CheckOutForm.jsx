@@ -4,11 +4,14 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../../../hooks/useTitle';
 
 
 
 
 const CheckOutForm = ({ price, lectureId, lecture }) => {
+    useTitle('Check Out')
+
     const stripe = useStripe();
     const elements = useElements();
     const [axiosSecure] = useAxiosSecure();

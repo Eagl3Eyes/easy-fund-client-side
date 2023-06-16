@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import useTitle from "../../../hooks/useTitle";
 
 
 const PaymentHistory = () => {
+    useTitle('Payment History')
+
     const [data, setData] = useState([]);
     const [axiosSecure] = useAxiosSecure();
     const { user } = useContext(AuthContext);
