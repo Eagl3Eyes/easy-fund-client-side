@@ -5,6 +5,7 @@ import { AuthContext } from '../../../Providers/AuthProviders';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useTitle from '../../../hooks/useTitle';
+import { motion } from 'framer-motion';
 
 
 
@@ -124,7 +125,11 @@ const CheckOutForm = ({ price, lectureId, lecture }) => {
 
 
     return (
-        <>
+        <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            exit={{ x: window.innerWidth }}
+        >
             <form className="w-2/3 m-8  mx-auto" onSubmit={handleSubmit}>
                 <CardElement
                     options={{
@@ -149,7 +154,7 @@ const CheckOutForm = ({ price, lectureId, lecture }) => {
 
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
-        </>
+        </motion.div>
     );
 };
 

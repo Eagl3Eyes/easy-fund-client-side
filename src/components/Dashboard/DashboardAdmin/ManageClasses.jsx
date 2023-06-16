@@ -3,6 +3,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import useTitle from '../../../hooks/useTitle';
+import { motion } from 'framer-motion';
 
 const ManageClasses = () => {
     useTitle('Manage Classes')
@@ -42,7 +43,11 @@ const ManageClasses = () => {
 
 
     return (
-        <section>
+        <motion.section
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            exit={{ x: window.innerWidth }}
+        >
             <h3 className="text-2xl font-bold mb-5 text-center uppercase mt-20">All Classes</h3>
             <div className='min-h-screen flex flex-wrap gap-10 mx-40 my-20'>
                 {
@@ -78,7 +83,7 @@ const ManageClasses = () => {
                     {/* ...your existing JSX code */}
                 </form>
             </dialog>
-        </section>
+        </motion.section>
     );
 };
 

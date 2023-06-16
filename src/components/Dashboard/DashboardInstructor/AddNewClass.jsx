@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 import useTitle from '../../../hooks/useTitle';
+import { motion } from 'framer-motion';
 
 
 
@@ -57,48 +58,54 @@ const AddNewClass = () => {
 
 
     return (
-        <section className='mx-72 min-h-screen my-20'>
-            <h2 className='text-3xl text-center uppercase'>Add a Class</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="p-8 bg-white rounded shadow-md">
+        <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            exit={{ x: window.innerWidth }}
+        >
+            <section className='mx-72 min-h-screen my-20'>
+                <h2 className='text-3xl text-center uppercase'>Add a Class</h2>
+                <form onSubmit={handleSubmit(onSubmit)} className="p-8 bg-white rounded shadow-md">
 
 
-                <label className="mb-2 font-bold" htmlFor="name">Class Name</label>
-                <div className="mb-4 shadow-lg">
-                    <input {...register('name', { required: true })} className="w-full px-4 py-2 border rounded" />
-                    {errors.name && <span className="text-red-500">This field is required</span>}
-                </div>
+                    <label className="mb-2 font-bold" htmlFor="name">Class Name</label>
+                    <div className="mb-4 shadow-lg">
+                        <input {...register('name', { required: true })} className="w-full px-4 py-2 border rounded" />
+                        {errors.name && <span className="text-red-500">This field is required</span>}
+                    </div>
 
-                <label className="block mb-2 font-bold" htmlFor="image">Class Image</label>
-                <div className="mb-4 shadow-lg">
-                    <input {...register('image', { required: true })} className="w-full px-4 py-2 border rounded" />
-                    {errors.image && <span className="text-red-500">This field is required</span>}
-                </div>
+                    <label className="block mb-2 font-bold" htmlFor="image">Class Image</label>
+                    <div className="mb-4 shadow-lg">
+                        <input {...register('image', { required: true })} className="w-full px-4 py-2 border rounded" />
+                        {errors.image && <span className="text-red-500">This field is required</span>}
+                    </div>
 
-                <label className="block mb-2 font-bold" htmlFor="instructor">Instructor</label>
-                <div className="mb-4 shadow-lg">
-                    <input value={user?.displayName} {...register('instructor',)} className="w-full px-4 py-2 border rounded" />
-                </div>
+                    <label className="block mb-2 font-bold" htmlFor="instructor">Instructor</label>
+                    <div className="mb-4 shadow-lg">
+                        <input value={user?.displayName} {...register('instructor',)} className="w-full px-4 py-2 border rounded" />
+                    </div>
 
-                <label className="block mb-2 font-bold" htmlFor="instructor">Instructor</label>
-                <div className="mb-4 shadow-lg">
-                    <input value={user?.email} {...register('email',)} className="w-full px-4 py-2 border rounded" />
-                </div>
+                    <label className="block mb-2 font-bold" htmlFor="instructor">Instructor</label>
+                    <div className="mb-4 shadow-lg">
+                        <input value={user?.email} {...register('email',)} className="w-full px-4 py-2 border rounded" />
+                    </div>
 
-                <label className="block mb-2 font-bold" htmlFor="availableSeats">Available Seats</label>
-                <div className="mb-4 shadow-lg">
-                    <input type="number" {...register('availableSeats', { required: true })} className="w-full px-4 py-2 border rounded" />
-                    {errors.availableSeats && <span className="text-red-500">This field is required</span>}
-                </div>
+                    <label className="block mb-2 font-bold" htmlFor="availableSeats">Available Seats</label>
+                    <div className="mb-4 shadow-lg">
+                        <input type="number" {...register('availableSeats', { required: true })} className="w-full px-4 py-2 border rounded" />
+                        {errors.availableSeats && <span className="text-red-500">This field is required</span>}
+                    </div>
 
-                <label className="block mb-2 font-bold" htmlFor="price">Price</label>
-                <div className="mb-4 shadow-lg">
-                    <input type="number" step="0.01" {...register('price', { required: true })} className="w-full px-4 py-2 border rounded" />
-                    {errors.price && <span className="text-red-500">This field is required</span>}
-                </div>
+                    <label className="block mb-2 font-bold" htmlFor="price">Price</label>
+                    <div className="mb-4 shadow-lg">
+                        <input type="number" step="0.01" {...register('price', { required: true })} className="w-full px-4 py-2 border rounded" />
+                        {errors.price && <span className="text-red-500">This field is required</span>}
+                    </div>
 
-                <button type="submit" disabled={disabled} className="btn text-white  bg-green-500 hover:bg-green-600">Add</button>
-            </form>
-        </section>
+                    <button type="submit" disabled={disabled} className="btn text-white  bg-green-500 hover:bg-green-600">Add</button>
+                </form>
+            </section>
+        </motion.div>
     );
 };
 
