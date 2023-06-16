@@ -12,6 +12,8 @@ import axios from 'axios'
 import Classes from './components/Classes/Classes'
 import Instructors from './components/Instructors/Instructors'
 import Dashboard from './components/Dashboard/Dashboard/Dashboard'
+import PrivateRoute from './routes/PrivateRoute'
+import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome'
 
 
 
@@ -47,10 +49,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <Dashboard />,
+    element: <PrivateRoute><Dashboard /></PrivateRoute>,
     children: [
       {
-
+        path: '/dashboard',
+        element: <DashboardHome />
       }
     ]
   }
