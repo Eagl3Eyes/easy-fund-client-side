@@ -17,6 +17,7 @@ import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome'
 import StudentPrivate from './routes/StudentPrivate'
 import SelectedClasses from './components/Dashboard/DashboardStudent/SelectedClasses'
 import Payment from './components/Dashboard/DashboardStudent/Payment'
+import PaymentHistory from './components/Dashboard/DashboardStudent/PaymentHistory'
 
 
 
@@ -65,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: 'studentClasses/pay/:id',
         element: <StudentPrivate><Payment /></StudentPrivate>
+      },
+      {
+        path: 'studentEnrolledClasses',
+        element: <StudentPrivate><EnrolledClasses />,</StudentPrivate>
+      },
+      {
+        path: 'studentPaymentHistory',
+        element: <StudentPrivate><PaymentHistory /></StudentPrivate>
       },
     ]
   }
