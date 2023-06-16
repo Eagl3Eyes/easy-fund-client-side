@@ -59,7 +59,10 @@ const DashboardSidebar = () => {
                             className="w-10 inline" />
                     </a>
                     <h1 className="text-white text-xl">
-                        Art & Craft School
+                        <span className='text-red-600'>A</span>
+                        <span className='text-white'>rtistic</span>
+                        <span className='text-red-600'> V</span>
+                        <span className='text-white'>entures</span>
                     </h1>
                 </div>
 

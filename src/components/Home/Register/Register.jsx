@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import useTitle from "../../../hooks/useTitle";
+import { motion } from "framer-motion";
 
 const Register = () => {
     useTitle('Register')
@@ -31,7 +32,7 @@ const Register = () => {
                 updateUserProfile(name, photoURL)
                     .then(result => {
                         const savedUser = { name: loggedUser.displayName, email: loggedUser.email, role: 'student', image: loggedUser.photoURL }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://summer-camp-server-tau-three.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -70,7 +71,7 @@ const Register = () => {
             .then(result => {
                 const loggedUser = result.user;
                 const savedUser = { name: loggedUser.displayName, email: loggedUser.email, role: 'student' }
-                fetch('http://localhost:5000/users', {
+                fetch('https://summer-camp-server-tau-three.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -96,7 +97,11 @@ const Register = () => {
     }
 
     return (
-        <section className="min-h-screen bg-base-200">
+        <motion.section
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            exit={{ x: window.innerWidth }}
+            className="min-h-screen bg-base-200">
             <div className="hero items-center">
                 <div className="hero-content flex-col lg:flex-row">
 
@@ -177,7 +182,7 @@ const Register = () => {
                     </form>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 

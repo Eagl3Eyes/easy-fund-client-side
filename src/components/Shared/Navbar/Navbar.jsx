@@ -74,7 +74,12 @@ const Navbar = ({ toggle, setToggle }) => {
                         <img src="https://i.ibb.co/ynwZBxh/logo.png"
                             className="w-10 inline" />
                     </a>
-                    <p className='md:text-2xl ml-2 uppercase font-semibold'>Art & School</p>
+                    <p className='md:text-2xl ml-2 uppercase font-semibold'>
+                        <span className='text-red-500'>A</span>
+                        <span className='text-slate-600'>rtistic</span>
+                        <span className='text-red-500'> V</span>
+                        <span className='text-slate-600'>entures</span>
+                    </p>
                 </div>
             </div>
             <div className="navbar-end hidden lg:flex items-center">

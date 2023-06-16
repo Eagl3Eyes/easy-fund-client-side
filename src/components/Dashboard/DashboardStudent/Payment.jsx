@@ -17,7 +17,7 @@ const Payment = () => {
     const [lectureId2, setLectureId2] = useState(null);
 
 
-    axiosSecure(`http://localhost:5000/classes-cart/${id}`)
+    axiosSecure(`https://summer-camp-server-tau-three.vercel.app/classes-cart/${id}`)
         .then(res => {
             setPrice(res.data?.lecture?.price);
             setLectureId2(res.data?.lecture);

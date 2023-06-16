@@ -6,6 +6,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
 import useTitle from "../../hooks/useTitle";
+import { motion } from "framer-motion";
 
 
 const Classes = () => {
@@ -36,7 +37,7 @@ const Classes = () => {
 
 
         const lectureData = { lecture, email: user.email }
-        axios.post('http://localhost:5000/classes-cart', lectureData)
+        axios.post('https://summer-camp-server-tau-three.vercel.app/classes-cart', lectureData)
             .then(res => {
                 if (res.data.acknowledged) {
                     Swal.fire(
@@ -50,29 +51,35 @@ const Classes = () => {
     }
 
     return (
-        <section className="grid grid-cols-1 md:grid-cols-4 justify-items-center mx-40 gap-12 mt-20 mb-40">
-            {
-                data?.map(lecture =>
-                    <div
-                        key={lecture._id}
-                        className={`${lecture.availableSeats == 0 ? 'bg-slate-200' : ''} w-60 rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl p-2`}
-                    >
+        <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            exit={{ x: window.innerWidth }}
+        >
+            <section className="grid grid-cols-1 md:grid-cols-4 justify-items-center mx-40 gap-12 mt-20 mb-40">
+                {
+                    data?.map(lecture =>
+                        <div
+                            key={lecture._id}
+                            className={`${lecture.availableSeats == 0 ? 'bg-slate-200' : ''} w-60 rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl p-2`}
+                        >
 
-                        <img className="h-40 object-cover rounded-xl" src={lecture.image} alt="" />
-                        <div className="p-2">
-                            <h2 className="font-bold text-center text-lg mb-2">{lecture.name}</h2>
-                            <p className="text-sm text-center text-gray-600 mb-2">Instructor: {lecture.instructor}</p>
-                            <p className="text-center mb-2">Price: ${lecture.price}</p>
-                            <p className="text-center mb-12">Available Seats: {lecture.availableSeats}</p>
+                            <img className="h-40 object-cover rounded-xl" src={lecture.image} alt="" />
+                            <div className="p-2">
+                                <h2 className="font-bold text-center text-lg mb-2">{lecture.name}</h2>
+                                <p className="text-sm text-center text-gray-600 mb-2">Instructor: {lecture.instructor}</p>
+                                <p className="text-center mb-2">Price: ${lecture.price}</p>
+                                <p className="text-center mb-12">Available Seats: {lecture.availableSeats}</p>
+                            </div>
+                            <div className="grid justify-items-center">
+                                <button disabled={lecture.availableSeats <= 0 || isAdmin.length > 0 || isAdmin?.role == 'admin' || isInstructor} onClick={() => addToCart(lecture)} className="btn uppercase text-white bg-slate-700 rounded-md hover:bg-slate-600 absolute bottom-0">Add to Cart</button>
+                            </div>
                         </div>
-                        <div className="grid justify-items-center">
-                            <button disabled={lecture.availableSeats <= 0 || isAdmin.length > 0 || isAdmin?.role == 'admin' || isInstructor} onClick={() => addToCart(lecture)} className="btn uppercase text-white bg-slate-700 rounded-md hover:bg-slate-600 absolute bottom-0">Add to Cart</button>
-                        </div>
-                    </div>
-                )
-            }
+                    )
+                }
 
-        </section>
+            </section>
+        </motion.div>
     );
 };
 

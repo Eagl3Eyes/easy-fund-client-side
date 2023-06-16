@@ -26,6 +26,7 @@ import AdminPrivate from './routes/AdminPrivate'
 import ManageUsers from './components/Dashboard/DashboardAdmin/ManageUsers'
 import ManageClasses from './components/Dashboard/DashboardAdmin/ManageClasses'
 import ErrorPage from './components/Shared/ErrorPage/ErrorPage'
+import { AnimatePresence } from 'framer-motion'
 
 
 
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
       {
         path: '/classes',
         element: <Classes />,
-        loader: () => axios('http://localhost:5000/classes')
+        loader: () => axios('https://summer-camp-server-tau-three.vercel.app/classes')
       },
       {
         path: '/instructors',
@@ -108,11 +109,13 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
-    </QueryClientProvider>
-  </React.StrictMode>,
+  <AnimatePresence>
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </QueryClientProvider>
+    </React.StrictMode>
+  </AnimatePresence>
 )

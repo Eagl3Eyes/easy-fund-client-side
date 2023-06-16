@@ -32,7 +32,7 @@ const AddNewClass = () => {
             enrolled: 0
         };
 
-        axios.post('http://localhost:5000/classes', lectureData)
+        axios.post('https://summer-camp-server-tau-three.vercel.app/classes', lectureData)
             .then(res => {
                 console.log(res);
                 if (res.data.acknowledged) {

@@ -5,7 +5,7 @@ const PopularClasses = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/classes/popularclasses')
+        axios.get('https://summer-camp-server-tau-three.vercel.app/classes/popularclasses')
             .then(res => setData(res.data))
     }, [])
 

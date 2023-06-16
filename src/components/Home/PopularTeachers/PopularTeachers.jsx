@@ -7,7 +7,7 @@ const PopularTeachers = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios('http://localhost:5000/teachers/popularteachers')
+        axios('https://summer-camp-server-tau-three.vercel.app/teachers/popularteachers')
             .then(res => setData(res.data))
     }, [])
     // console.log(data);

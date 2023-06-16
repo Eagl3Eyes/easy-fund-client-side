@@ -28,7 +28,7 @@ const ManageClasses = () => {
         e.preventDefault();
         const feedback = e.target.feedback.value;
 
-        axios.patch(`http://localhost:5000/all-classes-data?id=${selectedItem._id}&feedback=${feedback}&status=${status}`)
+        axios.patch(`https://summer-camp-server-tau-three.vercel.app/all-classes-data?id=${selectedItem._id}&feedback=${feedback}&status=${status}`)
             .then(res => {
                 console.log(res.data);
                 if (res.data.acknowledged) {

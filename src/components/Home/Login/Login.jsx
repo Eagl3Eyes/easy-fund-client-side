@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import useTitle from "../../../hooks/useTitle";
+import { motion } from "framer-motion";
 
 
 
@@ -48,7 +49,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 const savedUser = { name: loggedUser.displayName, email: loggedUser.email, role: 'student', image: loggedUser.photoURL }
-                fetch('http://localhost:5000/users', {
+                fetch('https://summer-camp-server-tau-three.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -71,7 +72,12 @@ const Login = () => {
 
 
     return (
-        <section className="min-h-screen bg-base-200">
+        <motion.section
+            initial={{ width: 0 }}
+            animate={{ width: "100%" }}
+            exit={{ x: window.innerWidth }}
+            className="min-h-screen bg-base-200"
+        >
             <div className="hero items-center">
                 <div className="hero-content flex-col lg:flex-row-reverse">
 
@@ -122,7 +128,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 
