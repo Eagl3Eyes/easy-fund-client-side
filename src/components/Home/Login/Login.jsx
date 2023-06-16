@@ -3,13 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import authImg from '../../../assets/login.png'
 import { FaEye, FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
-import AuthProvider from "../../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Providers/AuthProviders";
 
 
 
 const Login = () => {
-    const { logIn, googleLogIn } = useContext(AuthProvider);
+    const { logIn, googleLogIn } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [view, setView] = useState(false);
     const navigate = useNavigate();
