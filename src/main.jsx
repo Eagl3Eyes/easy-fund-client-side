@@ -22,6 +22,9 @@ import EnrolledClasses from './components/Dashboard/DashboardStudent/EnrolledCla
 import InstructorPrivate from './routes/InstructorPrivate'
 import AddNewClass from './components/Dashboard/DashboardInstructor/AddNewClass'
 import InstructorsClasses from './components/Dashboard/DashboardInstructor/InstructorsClasses'
+import AdminPrivate from './routes/AdminPrivate'
+import ManageUsers from './components/Dashboard/DashboardAdmin/ManageUsers'
+import ManageClasses from './components/Dashboard/DashboardAdmin/ManageClasses'
 
 
 
@@ -89,7 +92,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'admin/manageUsers',
-        element: <AdminPrivate></AdminPrivate>
+        element: <AdminPrivate><ManageUsers /></AdminPrivate>
       },
       {
         path: 'admin/manageClasses',

@@ -36,7 +36,7 @@ const AddNewClass = () => {
                     Swal.fire({
                         icon: 'success',
                         title: 'Lecture Added',
-                        footer: 'admin will approve this lecture',
+                        footer: 'Wait until Admin Approve your lecture',
                         text: 'Lecture will be pending',
                     })
                     setDisabled(false);
