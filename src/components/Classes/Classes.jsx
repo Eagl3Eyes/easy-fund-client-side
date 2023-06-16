@@ -56,19 +56,20 @@ const Classes = () => {
             animate={{ width: "100%" }}
             exit={{ x: window.innerWidth }}
         >
-            <section className="grid grid-cols-1 md:grid-cols-4 justify-items-center mx-40 gap-12 mt-20 mb-40">
+            <section className="grid grid-cols-1 md:grid-cols-5 justify-items-center mx-40 gap-12 mt-20 mb-40">
                 {
                     data?.map(lecture =>
                         <div
                             key={lecture._id}
-                            className={`${lecture.availableSeats == 0 ? 'bg-slate-200' : ''} w-60 rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl p-2`}
+                            className={`${lecture.availableSeats == 0 ? 'bg-slate-300' : ''} w-60 rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl p-2`}
                         >
 
                             <img className="h-40 object-cover rounded-xl" src={lecture.image} alt="" />
                             <div className="p-2">
                                 <h2 className="font-bold text-center text-lg mb-2">{lecture.name}</h2>
-                                <p className="text-sm text-center text-gray-600 mb-2">Instructor: {lecture.instructor}</p>
+                                <p className="text-sm font-semibold text-center text-gray-600 mb-2">Instructor: {lecture.instructor}</p>
                                 <p className="text-center mb-2">Price: ${lecture.price}</p>
+                                <p className="text-center">Already Enrolled: {lecture.enrolled}</p>
                                 <p className="text-center mb-12">Available Seats: {lecture.availableSeats}</p>
                             </div>
                             <div className="grid justify-items-center">

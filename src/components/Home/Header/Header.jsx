@@ -34,7 +34,7 @@ const Header = () => {
                         <div className="absolute inset-0 flex flex-col justify-center items-center">
                             <div className="text-center text-white">
                                 <h2 className="md:text-5xl text-2xl font-bold uppercase text-shadow mb-10">
-                                    <p>Welcome to our Arts & Craft School</p>
+                                    <p>Welcome to our ARTISTIC VENTURES</p>
                                 </h2>
                                 <p className="mx-auto md:text-lg w-4/6">
                                     <p className=' fs-6 col-lg-5 fw-semibold'>We have professional
@@ -73,7 +73,7 @@ const Header = () => {
                         <div className="absolute inset-0 flex flex-col justify-center items-center">
                             <div className="text-center text-white">
                                 <h2 className="md:text-5xl text-2xl font-bold  text-shadow mb-10">
-                                    <p>Welcome to our Arts & Craft School</p>
+                                    <p>Welcome to our ARTISTIC VENTURES</p>
                                 </h2>
                                 <p className="mx-auto md:text-lg w-4/6">
                                     <p className=' fs-6 col-lg-5 fw-semibold'>We have professional
@@ -112,7 +112,7 @@ const Header = () => {
                         <div className="absolute inset-0 flex flex-col justify-center items-center">
                             <div className="text-center text-white">
                                 <h2 className="md:text-5xl text-2xl font-bold  text-shadow mb-10">
-                                    <p>Welcome to our Arts & Craft School</p>
+                                    <p>Welcome to our ARTISTIC VENTURES</p>
                                 </h2>
                                 <p className="mx-auto md:text-lg w-4/6">
                                     <p className=' fs-6 col-lg-5 fw-semibold'>We have professional
