@@ -14,6 +14,8 @@ import Instructors from './components/Instructors/Instructors'
 import Dashboard from './components/Dashboard/Dashboard/Dashboard'
 import PrivateRoute from './routes/PrivateRoute'
 import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome'
+import StudentPrivate from './routes/StudentPrivate'
+import SelectedClasses from './components/Dashboard/DashboardStudent/SelectedClasses'
 
 
 
@@ -54,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <DashboardHome />
+      },
+      {
+        path: 'studentClasses',
+        element: <StudentPrivate><SelectedClasses /></StudentPrivate>
       }
     ]
   }

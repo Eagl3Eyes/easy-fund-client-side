@@ -25,7 +25,7 @@ const DashboardSidebar = () => {
         {
             isStudent &&
             <>
-                <NavLink to='/dashboard/studentClasses' className='btn hover:text-info font-semibold uppercase'><FiShoppingCart></FiShoppingCart>My Cart</NavLink>
+                <NavLink to='/dashboard/studentClasses' className='btn hover:text-info font-semibold uppercase'><FiShoppingCart></FiShoppingCart>My Selected Class</NavLink>
 
                 <NavLink to='/dashboard/studentEnrolledClasses' className='btn hover:text-info font-semibold uppercase'><FiFolder></FiFolder>My Classes</NavLink>
 
