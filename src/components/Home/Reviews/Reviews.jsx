@@ -22,10 +22,11 @@ const Reviews = () => {
     return (
         <section className="md:mx-40 mx-10 mb-20">
             <span className="font-bold mb-20 text-center">
-                <Slide>
+                <Fade>
                     <h1 className='text-5xl font-bold text-center uppercase mt-40'>Our Student Review's</h1>
-                </Slide>
+                </Fade>
             </span>
+            <p className='font-semibold text-gray-600 text-center mt-4'>Our student reviews speak volumes about the positive impact our courses have had <br /> on their lives, highlighting the exceptional quality of instruction, engaging curriculum, <br /> and the supportive learning environment that sets us apart.</p>
             <Swiper
                 pagination={{
                     dynamicBullets: true,

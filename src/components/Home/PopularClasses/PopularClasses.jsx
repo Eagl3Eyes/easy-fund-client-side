@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Fade } from 'react-awesome-reveal';
+
 
 const PopularClasses = () => {
     const [data, setData] = useState([]);
@@ -14,8 +16,13 @@ const PopularClasses = () => {
     return (
         <div className="mt-40">
             <span className="text-5xl font-bold uppercase text-center mb-10">
-                <p>{`Popular Classes`}</p>
+                <Fade>
+                    <p>Popular Classes</p>
+                </Fade>
             </span>
+
+            <p className='font-semibold text-gray-600 text-center mt-4'>Dive into our collection of popular classes,  where you can join a vibrant community of students <br /> who have discovered the joy of learning through captivating lessons, practical exercises, and valuable <br /> insights provided by our renowned instructors.</p>
+
             <section class="py-10">
                 <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
                     {
