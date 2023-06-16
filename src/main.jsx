@@ -9,7 +9,12 @@ import Main from './LayOut/Main.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Main></Main>
+    element: <Main />,
+    children: [
+      {
+        path: '/'
+      }
+    ]
   }
 ])
 
