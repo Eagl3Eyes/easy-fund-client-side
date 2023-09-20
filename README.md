@@ -1,20 +1,19 @@
-## Live Link: https://summer-camp-4cc35.web.app/
+## Live Link: [__Easy Fund__](https://summer-camp-4cc35.web.app/)
 -------------------------------------------------------------------------
 
-# ARTISTIC VENTURES
+# Easy Fund
 
 
-This is Art and Craft Course website. Below you will find information about the website's features, technologies used.
+This is Crowd Funding website. Below you will find information about the website's features, technologies used.
 
 ## Features
 
-1. **Registration and Login**: Users can create an account and log in to access the summer photography camp course materials.
-2. **Admin Dashboard**: This section accessible only to administrators. Admins can manage classes, approve/deny classes, and provide feedback to instructors.
-3. **Instructor Dashboard**: This section accessible only to instructors. Instructors can add classes, view their classes, and update class information.
-4. **Student Dashboard**: This section accessible only to students. Students can view selected and enrolled classes, manage their bookings, and delete selected classes.
-5. **Course Content**: The website provides access to a curated collection of photography lessons, tutorials, and resources for the summer camp course.
-6. **Payment Integration**: Users can make secure payments for the summer camp course using Stripe.
-7. **Responsive Design**: The website is designed to be fully responsive without table section, ensuring a seamless experience across different devices and screen sizes.
+1. **Registration and Login**: Users can create an account and log in to access the donation app.
+2. **Admin Dashboard**: This section accessible only to administrators. Admins can manage fund, approve/deny fund raiser, and provide feedback to fund raiser.
+3. **Fund Raiser Dashboard**: This section accessible only to Fund Raiser. Fund Raiser can raise new Fund, view their Raised Fund, and update fund information.
+4. **Donor Dashboard**: This section accessible only to user. User can view selected and donated history, manage their selected fund, and delete selected fund.
+5. **Payment Integration**: Users can make secure payments for the fund using Stripe.
+6. **Responsive Design**: The website is designed to be fully responsive without table section, ensuring a seamless experience across different devices and screen sizes.
 
 ## Front-end Technologies Used
 
