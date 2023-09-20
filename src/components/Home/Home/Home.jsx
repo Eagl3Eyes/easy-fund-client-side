@@ -16,8 +16,8 @@ const Home = () => {
             exit={{ x: window.innerWidth }}
         >
             <Header />
-            <PopularClasses />
             <PopularTeachers />
+            <PopularClasses />
             <Reviews />
         </motion.section>
     );

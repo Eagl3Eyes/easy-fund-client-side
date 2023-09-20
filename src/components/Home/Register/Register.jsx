@@ -31,8 +31,8 @@ const Register = () => {
                 const loggedUser = result.user;
                 updateUserProfile(name, photoURL)
                     .then(result => {
-                        const savedUser = { name: loggedUser.displayName, email: loggedUser.email, role: 'student', image: loggedUser.photoURL }
-                        fetch('https://summer-camp-server-tau-three.vercel.app/users', {
+                        const savedUser = { name: loggedUser.displayName, email: loggedUser.email, role: 'user', image: loggedUser.photoURL }
+                        fetch('https://crowd-funding-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -70,8 +70,8 @@ const Register = () => {
         googleLogIn()
             .then(result => {
                 const loggedUser = result.user;
-                const savedUser = { name: loggedUser.displayName, email: loggedUser.email, role: 'student' }
-                fetch('https://summer-camp-server-tau-three.vercel.app/users', {
+                const savedUser = { name: loggedUser.displayName, email: loggedUser.email, role: 'user' }
+                fetch('https://crowd-funding-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

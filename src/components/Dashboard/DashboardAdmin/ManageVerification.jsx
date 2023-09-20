@@ -4,20 +4,19 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import useTitle from '../../../hooks/useTitle';
 import { motion } from 'framer-motion';
-import { TbCurrencyTaka } from "react-icons/tb";
 
+const ManageVerification = () => {
+    useTitle('Manage Verification')
 
-const ManageClasses = () => {
-    useTitle('Manage Fund Request')
-
-    const [allLectures, setAllLectures] = useState([]);
+    const [allVerification, setAllVerification] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
     const [status, setStatus] = useState(null);
     const [axiosSecure] = useAxiosSecure();
 
+    
     useEffect(() => {
-        axiosSecure.get('/all-classes-data')
-            .then(res => setAllLectures(res.data))
+        axiosSecure.get('/all-verification-data')
+            .then(res => setAllVerification(res.data))
     }, [])
 
     const openModal = (item, status) => {
@@ -31,13 +30,13 @@ const ManageClasses = () => {
         e.preventDefault();
         const feedback = e.target.feedback.value;
 
-        axios.patch(`https://crowd-funding-server.vercel.app/all-classes-data?id=${selectedItem._id}&feedback=${feedback}&status=${status}`)
+        axios.patch(`https://crowd-funding-server.vercel.app/all-verification-data?id=${selectedItem._id}&feedback=${feedback}&status=${status}`)
             .then(res => {
                 // console.log(res.data);
                 if (res.data.acknowledged) {
-                    axiosSecure.get('/all-classes-data')
-                        .then(res => setAllLectures(res.data))
-                    Swal.fire('Fund Updated Successfully')
+                    axiosSecure.get('/all-verification-data')
+                        .then(res => setAllVerification(res.data))
+                    Swal.fire('Verification Updated Successfully')
                 }
             })
 
@@ -50,18 +49,16 @@ const ManageClasses = () => {
             animate={{ width: "100%" }}
             exit={{ x: window.innerWidth }}
         >
-            <h3 className="text-2xl font-bold mb-5 text-center uppercase mt-20">Manage Requested Funds</h3>
+            <h3 className="text-2xl font-bold mb-5 text-center uppercase mt-20">Manage Verification</h3>
             <div className='flex flex-wrap gap-10 mx-40 my-20'>
                 {
-                    allLectures?.map(item => <div key={item._id} className="flex bg-base-100 shadow-2xl w-full rounded-lg">
-                        <figure><img src={item.image} className="w-80 h-64 rounded-s-lg object-fill" /></figure>
+                    allVerification?.map(item => <div key={item._id} className="flex bg-base-100 shadow-2xl w-full rounded-lg">
+                        <figure><img src={item.image} className="w-64 h-64 rounded-s-lg object-fill" /></figure>
                         <div className="ms-10 flex-grow my-auto p-y-2">
                             <h2 className="text-2xl font-bold">{item.name}</h2>
-                            <p className='font-bold'>Raised By: {item.instructor} </p>
                             <p className='font-bold'>Email: {item?.email}</p>
-                            <p className='font-bold flex items-center'>Goal: {item.availableSeats}<TbCurrencyTaka /></p>
-                            <p className='font-bold flex items-center'>Price: {item.price}<TbCurrencyTaka /></p>
-                            <p className='font-bold flex items-center'>Description: {item.description}</p>
+                            <p className='font-bold'>National ID/ Passport Number: {item.idCardNumber}</p>
+                            <p className='font-bold'>Phone Number: {item.phoneNumber}</p>
                             <p className='font-bold'>Status: {item.status}</p>
                         </div>
 
@@ -74,7 +71,7 @@ const ManageClasses = () => {
 
 
             <dialog id="my_modal_1" className="modal">
-                <form onSubmit={handleStatusChange} method="dialog" className="modal-box w-11/12 bg-slate-200 max-w-5xl">
+                <form onSubmit={handleStatusChange} method="dialog" className="modal-box w-11/12 max-w-5xl">
                     {/* ...your existing JSX code */}
                     {selectedItem && (
                         <div className='h-auto'>
@@ -90,4 +87,4 @@ const ManageClasses = () => {
     );
 };
 
-export default ManageClasses;
+export default ManageVerification;

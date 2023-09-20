@@ -1,16 +1,12 @@
-import axios from 'axios';
-import React from 'react';
-import { useContext, useState } from 'react';
+import { motion } from 'framer-motion';
+import React, { useContext, useState } from 'react';
+import useTitle from '../../../hooks/useTitle';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../Providers/AuthProviders';
-import Swal from 'sweetalert2';
-import useTitle from '../../../hooks/useTitle';
-import { motion } from 'framer-motion';
 
+const UpdateFund = () => {
 
-
-const AddNewClass = () => {
-    useTitle('Request For Fund')
+    useTitle('Update Fund Details')
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext);
@@ -20,14 +16,13 @@ const AddNewClass = () => {
         // Logic for creating a class
         setDisabled(true);
 
-        const { name, image, instructor, availableSeats, price, email, description } = data;
+        const { name, image, instructor, availableSeats, price, email } = data;
 
         const lectureData = {
             email,
             name,
             image,
             instructor,
-            description,
             availableSeats: parseInt(availableSeats),
             price: parseInt(price),
             status: 'pending',
@@ -65,7 +60,7 @@ const AddNewClass = () => {
             exit={{ x: window.innerWidth }}
         >
             <section className='mx-72 min-h-screen my-20'>
-                <h2 className='text-3xl text-center uppercase'>Request for Fund</h2>
+                <h2 className='text-3xl text-center uppercase'>Update Your Fund</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="p-8 bg-white rounded shadow-md">
 
 
@@ -103,12 +98,6 @@ const AddNewClass = () => {
                         {errors.price && <span className="text-red-500">This field is required</span>}
                     </div>
 
-                    <label className="block mb-2 font-bold" htmlFor="description">Event Description</label>
-                    <div className="mb-4 shadow-lg">
-                        <input type="text" step="0.01" {...register('description', { required: true })} className="w-full px-4 py-2 border rounded" />
-                        {errors.description && <span className="text-red-500">This field is required</span>}
-                    </div>
-
                     <button type="submit" disabled={disabled} className="btn text-white  bg-green-500 hover:bg-green-600">Add</button>
                 </form>
             </section>
@@ -116,4 +105,4 @@ const AddNewClass = () => {
     );
 };
 
-export default AddNewClass;
+export default UpdateFund;

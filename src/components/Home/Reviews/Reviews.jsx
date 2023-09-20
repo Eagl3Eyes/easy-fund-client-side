@@ -1,65 +1,76 @@
-import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper";
-import { Rating } from "@smastrom/react-rating";
-import '@smastrom/react-rating/style.css';
-import { Fade, Slide } from "react-awesome-reveal";
-
-
+import React from 'react';
+import './Reviews.css';
+import Blog1 from '../../../assets/blog-1.jpg';
+import Blog2 from '../../../assets/blog-2.jpg';
+import Blog3 from '../../../assets/blog-3.jpg';
+import { FaUser, FaComments } from "react-icons/fa";
 
 const Reviews = () => {
-
-    const [reviews, setReviews] = useState([]);
-    useEffect(() => {
-        fetch('./reviews.json')
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [])
-
-
     return (
-        <section className="md:mx-40 mx-10 mb-20">
-            <span className="font-bold mb-20 text-center">
-                <Fade>
-                    <h1 className='text-5xl font-bold text-center uppercase mt-40'>Our Student Review's</h1>
-                </Fade>
-            </span>
-            <p className='font-semibold text-gray-600 text-center mt-4'>Our student reviews speak volumes about the positive impact our courses have had <br /> on their lives, highlighting the exceptional quality of instruction, engaging curriculum, <br /> and the supportive learning environment that sets us apart.</p>
-            <Swiper
-                pagination={{
-                    dynamicBullets: true,
-                }}
-                modules={[Pagination]}
-                className="mySwiper rounded-lg mt-14"
-            >
-                {
-                    reviews?.map(review =>
-                        <SwiperSlide
-                            className="space-y-10 py-5"
-                            key={review.author}>
-                            <h3 className="text-3xl font-semibold ">
-                                {review.author}
-                            </h3>
-                            <Rating
-                                className="mx-auto"
-                                style={{ maxWidth: 180, }}
-                                value={review.rating}
-                                readOnly
-                            />
-                            <Fade
-                                className='flex font-bold'
-                                delay={1e1}
-                                cascade damping={1e-1}
-                            >
-                                {review.content}
-                            </Fade>
-                        </SwiperSlide>
-                    )
-                }
-            </Swiper>
-        </section>
+        <div>
+            <div className="blog">
+                <div className="justify-center items-center">
+                    <div className="section-header text-center">
+                        <p className='text-3xl md:text-5xl lg:text-5xl font-medium text-[#FDBE33]'>Our Blog</p>
+                        <h2 className='text-3xl md:text-5xl lg:text-5xl font-semibold text-[#4a4c70] mt-4 mb-8'>Latest news & articles directly from our blog</h2>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-10 sm:px-0 md:px-0 lg:px-10 xl:px-48 text-center">
+                        <div className="">
+                            <div className="blog-item">
+                                <div className="blog-img">
+                                    <img src={Blog1} alt="Image" />
+                                </div>
+                                <div className="blog-text">
+                                    <h3><a href="#">Aid Sylhet floods through your generous donations.</a></h3>
+                                    <p>
+                                        Each passing day, the rising Sylhet flood intensifies, leaving families desperate for essential relief assistance and support.
+                                    </p>
+                                </div>
+                                <div className="blog-meta">
+                                    <p className='flex items-center gap-2'><FaUser /><a href=""><span className='hover:text-[#FDBE33]'>Admin</span></a></p>
+                                    <p className='flex items-center gap-2'><FaComments /><a href=""><span className='hover:text-[#FDBE33]'>15 Comments</span></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="">
+                            <div className="blog-item">
+                                <div className="blog-img">
+                                    <img src={Blog2} alt="Image" />
+                                </div>
+                                <div className="blog-text">
+                                    <h3><a href="#">Relief Funds for Flood Affected in Chattogram</a></h3>
+                                    <p>
+                                        Funds for relief were gathered <br />to aid Chattogram after the devastating impact of the flood.
+                                    </p>
+                                </div>
+                                <div className="blog-meta">
+                                    <p className='flex items-center gap-2'><FaUser /><a href=""><span className='hover:text-[#FDBE33]'>Admin</span></a></p>
+                                    <p className='flex items-center gap-2'><FaComments /><a href=""><span className='hover:text-[#FDBE33]'>15 Comments</span></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="">
+                            <div className="blog-item">
+                                <div className="blog-img">
+                                    <img src={Blog3} alt="Image" />
+                                </div>
+                                <div className="blog-text">
+                                    <h3><a href="#">Food and relief items distributed in remote areas
+                                    </a></h3>
+                                    <p>
+                                        Food and other necessary item are <br /> being distributed by a reputed NGO in remote parts of the country
+                                    </p>
+                                </div>
+                                <div className="blog-meta">
+                                    <p className='flex items-center gap-2'><FaUser /><a href=""><span className='hover:text-[#FDBE33]'>Admin</span></a></p>
+                                    <p className='flex items-center gap-2'><FaComments /><a href=""><span className='hover:text-[#FDBE33]'>15 Comments</span></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };
 

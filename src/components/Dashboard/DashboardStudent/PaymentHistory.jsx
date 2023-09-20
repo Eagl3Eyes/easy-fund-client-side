@@ -31,8 +31,8 @@ const PaymentHistory = () => {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th className="text-center font-semibold uppercase">Lecture Name</th>
-                                <th className="text-center font-semibold uppercase">Instructor</th>
+                                <th className="text-center font-semibold uppercase">Event Name</th>
+                                <th className="text-center font-semibold uppercase">Raised By</th>
                                 <th className="text-center font-semibold uppercase">Transaction ID</th>
                                 <th className="text-center font-semibold uppercase">Time</th>
                             </tr>

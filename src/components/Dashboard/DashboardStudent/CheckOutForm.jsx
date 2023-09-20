@@ -111,7 +111,7 @@ const CheckOutForm = ({ price, lectureId, lecture }) => {
                                         icon: 'success',
                                         title: 'Payment successfully',
                                     })
-                                    navigate('/dashboard/studentClasses')
+                                    navigate('/dashboard/selecteddonation')
                                 }
                             })
 
@@ -130,26 +130,104 @@ const CheckOutForm = ({ price, lectureId, lecture }) => {
             animate={{ width: "100%" }}
             exit={{ x: window.innerWidth }}
         >
-            <form className="w-2/3 m-8  mx-auto" onSubmit={handleSubmit}>
+
+            <div className="container mx-auto p4-10">
+                <div className="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
+                    <div className="md:flex">
+                        <div className="w-full px-6 py-8 md:p-8">
+                            {/* <h2 class="text-2xl font-bold text-gray-800">Checkout</h2> */}
+                            <p className="mt-4 text-gray-600">Please fill out the form below to complete your donation.</p>
+                            <form className="mt-6">
+                                <div className="mb-6">
+                                    <label className="block text-gray-800 font-bold mb-2" for="name">
+                                        Name
+                                    </label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe" />
+                                </div>
+                                <div className="mb-6">
+                                    <label className="block text-gray-800 font-bold mb-2" for="email">
+                                        Email
+                                    </label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johndoe@example.com" />
+                                </div>
+                                <div class="mb-6">
+                                    <label className="block text-gray-800 font-bold mb-2" for="number">
+                                        Phone Number
+                                    </label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="number" type="text" placeholder="01345678901" />
+                                </div>
+                                <div class="mb-6">
+                                    <label className="block text-gray-800 font-bold mb-2" for="address">
+                                        Address
+                                    </label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="address" type="text" placeholder="House #39, Road #37, Gulshan-2" />
+                                </div>
+
+                                <div class="mb-6">
+                                    <label className="block text-gray-800 font-bold mb-2" for="zip">
+                                        Zip Code
+                                    </label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="zip" type="number" placeholder="1212" />
+                                </div>
+                                <div class="mb-6">
+                                    <label className="block text-gray-800 font-bold mb-2" for="card_number">
+                                        Enter Amount
+                                    </label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="card_number" type="number" placeholder="500" />
+                                </div>
+
+
+
+                                {/* <div className="mb-6">
+                                    <label className="block text-gray-800 font-bold mb-2" for="card_number">
+                                        Card Number
+                                    </label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="card_number" type="text" placeholder="**** **** **** 1234" />
+                                </div> */}
+                                {/* <div className="mb-6">
+                                    <label className="block text-gray-800 font-bold mb-2" for="expiration_date">
+                                        Expiration Date
+                                    </label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="expiration_date" type="text" placeholder="MM / YY" />
+                                </div> */}
+                                {/* <div className="mb-6">
+                                    <label className="block text-gray-800 font-bold mb-2" for="cvv">
+                                        CVV
+                                    </label>
+                                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cvv" type="text" placeholder="***" />
+                                </div> */}
+                                {/* <button className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                    Submit
+                                </button> */}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form className="w-1/3 m-8  mx-auto" onSubmit={handleSubmit}>
+
                 <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '20px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
+                    options={
+                        {
+                            style: {
+                                base: {
+                                    fontSize: '20px',
+                                    color: '#424770',
+                                    '::placeholder': {
+                                        color: '#aab7c4',
+                                    },
+                                },
+                                invalid: {
+                                    color: '#9e2146',
                                 },
                             },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    }}
+                        }}
                 />
 
                 <div className="grid justify-items-center mt-10">
-                    <input value="Pay" className="btn flex px-20 mt-4 text-white bg-green-500 hover:bg-green-600" type="submit" disabled={!stripe || !clientSecret || processing} />
+                    {/* <input value="Pay" className="btn flex px-20 mt-4 text-white bg-green-500 hover:bg-green-600" type="submit" disabled={!stripe || !clientSecret || processing} /> */}
+                    <input value="Pay" className="btn flex px-20 mt-4 text-white bg-green-500 hover:bg-green-600" type="submit"  />
                 </div>
 
             </form>

@@ -11,16 +11,16 @@ const ManageUsers = () => {
     const [allUsers, setAllUsers] = useState([]);
     const [axiosSecure] = useAxiosSecure();
     useEffect(() => {
-        const x = axiosSecure.get(`https://summer-camp-server-tau-three.vercel.app/all-users-data`)
+        const x = axiosSecure.get(`https://crowd-funding-server.vercel.app/all-users-data`)
             .then(res => setAllUsers(res.data))
     }, [])
 
     const handleRoleUpdate = (role, email) => {
         // console.log(role, email);
-        axios.patch(`https://summer-camp-server-tau-three.vercel.app/all-users-data/?email=${email}&role=${role}`)
+        axios.patch(`https://crowd-funding-server.vercel.app/all-users-data/?email=${email}&role=${role}`)
             .then(res => {
                 if (res.data.acknowledged) {
-                    const x = axiosSecure.get(`https://summer-camp-server-tau-three.vercel.app/all-users-data`)
+                    const x = axiosSecure.get(`https://crowd-funding-server.vercel.app/all-users-data`)
                         .then(res => setAllUsers(res.data))
                     Swal.fire('Role updated')
                 }
@@ -56,7 +56,8 @@ const ManageUsers = () => {
                                         <td>{item.email}</td>
                                         <td className='text-center'>{item.role}</td>
                                         <td className='text-center'><button className='btn text-white bg-[#081A51] hover:bg-blue-900' disabled={item.role === 'admin'} onClick={() => handleRoleUpdate('admin', item.email)}>Make Admin</button></td>
-                                        <td className='text-center'><button onClick={() => handleRoleUpdate('instructor', item.email)} className='btn text-white bg-violet-600 hover:bg-violet-800' disabled={item.role === 'instructor' || item.role === 'admin'}>Make Instructor</button></td>
+                                        
+                                        <td className='text-center'><button onClick={() => handleRoleUpdate('verified', item.email)} className='btn text-white bg-violet-600 hover:bg-violet-800' disabled={item.role === 'verified' || item.role === 'admin'}>Make Verified</button></td>
                                     </tr>
                                 )
                             }

@@ -10,7 +10,7 @@ import Login from './components/Home/Login/Login.jsx'
 import Register from './components/Home/Register/Register.jsx'
 import axios from 'axios'
 import Classes from './components/Classes/Classes'
-import Instructors from './components/Instructors/Instructors'
+import ContactUs from './components/ContactUs/ContactUs'
 import Dashboard from './components/Dashboard/Dashboard/Dashboard'
 import PrivateRoute from './routes/PrivateRoute'
 import DashboardHome from './components/Dashboard/DashboardHome/DashboardHome'
@@ -18,7 +18,6 @@ import StudentPrivate from './routes/StudentPrivate'
 import SelectedClasses from './components/Dashboard/DashboardStudent/SelectedClasses'
 import Payment from './components/Dashboard/DashboardStudent/Payment'
 import PaymentHistory from './components/Dashboard/DashboardStudent/PaymentHistory'
-import EnrolledClasses from './components/Dashboard/DashboardStudent/EnrolledClasses'
 import InstructorPrivate from './routes/InstructorPrivate'
 import AddNewClass from './components/Dashboard/DashboardInstructor/AddNewClass'
 import InstructorsClasses from './components/Dashboard/DashboardInstructor/InstructorsClasses'
@@ -27,6 +26,13 @@ import ManageUsers from './components/Dashboard/DashboardAdmin/ManageUsers'
 import ManageClasses from './components/Dashboard/DashboardAdmin/ManageClasses'
 import ErrorPage from './components/Shared/ErrorPage/ErrorPage'
 import { AnimatePresence } from 'framer-motion'
+import Verification from './components/Dashboard/DashboardStudent/Verification'
+import ManageVerification from './components/Dashboard/DashboardAdmin/ManageVerification'
+import PaidClasses from './components/Dashboard/DashboardStudent/PaidClasses'
+import UpdateFund from './components/Dashboard/DashboardInstructor/UpdateFund'
+import DonateNow from './components/Classes/DonateNow'
+import DonateNowDetails from './components/Classes/DonateNowDetails'
+import Withdraw from './components/Dashboard/DashboardInstructor/Withdraw'
 
 
 
@@ -49,14 +55,36 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />
       },
+      // {
+      //   path: '/donatenow',
+      //   element: <Classes />,
+      //   loader: () => axios('https://crowd-funding-server.vercel.app/classes')
+      // },
       {
-        path: '/classes',
-        element: <Classes />,
-        loader: () => axios('https://summer-camp-server-tau-three.vercel.app/classes')
+        path: '/donatenow',
+        element: <DonateNow />,
+        loader: async () => {
+          try {
+            const donateData = await fetch('https://crowd-funding-server.vercel.app/classes');
+            const donates = await donateData.json();
+
+            return {
+              donates: donates
+            };
+          }
+          catch (err) {
+            console.log(err);
+          }
+        }
       },
       {
-        path: '/instructors',
-        element: <Instructors />
+        path: "/donatenow/:id",
+        element: <DonateNowDetails></DonateNowDetails>,
+        loader: ({ params }) => fetch(`https://crowd-funding-server.vercel.app/classes/${params.id}`)
+      },
+      {
+        path: '/contactus',
+        element: <ContactUs />
       }
     ]
   },
@@ -69,36 +97,52 @@ const router = createBrowserRouter([
         element: <DashboardHome />
       },
       {
-        path: 'studentClasses',
+        path: 'selecteddonation',
         element: <StudentPrivate><SelectedClasses /></StudentPrivate>
       },
       {
-        path: 'studentClasses/pay/:id',
+        path: 'selecteddonation/pay/:id',
         element: <StudentPrivate><Payment /></StudentPrivate>
       },
       {
-        path: 'studentEnrolledClasses',
-        element: <StudentPrivate><EnrolledClasses /></StudentPrivate>
+        path: 'donated',
+        element: <StudentPrivate><PaidClasses /></StudentPrivate>
       },
       {
-        path: 'studentPaymentHistory',
+        path: 'paymenthistory',
         element: <StudentPrivate><PaymentHistory /></StudentPrivate>
       },
       {
-        path: 'instructorAddNewClass',
+        path: 'verification',
+        element: <StudentPrivate><Verification /></StudentPrivate>
+      },
+      {
+        path: 'requestfund',
         element: <InstructorPrivate><AddNewClass /></InstructorPrivate>
       },
       {
-        path: 'instructorsClasses',
+        path: 'raisedfund',
         element: <InstructorPrivate><InstructorsClasses /></InstructorPrivate>
+      },
+      {
+        path: 'raisedfund/updatefund',
+        element: <InstructorPrivate><UpdateFund></UpdateFund></InstructorPrivate>
+      },
+      {
+        path: 'raisedfund/withdraw',
+        element: <InstructorPrivate><Withdraw></Withdraw></InstructorPrivate>
       },
       {
         path: 'admin/manageUsers',
         element: <AdminPrivate><ManageUsers /></AdminPrivate>
       },
       {
-        path: 'admin/manageClasses',
+        path: 'admin/managerequestedfund',
         element: <AdminPrivate><ManageClasses /></AdminPrivate>
+      },
+      {
+        path: 'admin/manageverification',
+        element: <AdminPrivate><ManageVerification /></AdminPrivate>
       }
     ]
   },

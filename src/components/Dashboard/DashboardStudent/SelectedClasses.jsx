@@ -1,6 +1,5 @@
 import React from 'react';
 import useStudent from '../../../hooks/useStudent';
-import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -8,7 +7,7 @@ import useTitle from '../../../hooks/useTitle';
 import { motion } from 'framer-motion';
 
 const SelectedClasses = () => {
-    useTitle('Selected Class')
+    useTitle('Selected Donation')
 
     const [isStudent, , refetch] = useStudent();
 
@@ -23,7 +22,7 @@ const SelectedClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://summer-camp-server-tau-three.vercel.app/classes-cart/${id}`)
+                axios.delete(`https://crowd-funding-server.vercel.app/classes-cart/${id}`)
                     .then(res => {
                         if (res.data.deletedCount) {
                             refetch();
@@ -51,8 +50,8 @@ const SelectedClasses = () => {
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th className='text-center font-semibold uppercase'>Lecture Name</th>
-                                <th className='text-center font-semibold uppercase'>Instructor</th>
+                                <th className='text-center font-semibold uppercase'>Event Name</th>
+                                <th className='text-center font-semibold uppercase'>Raised By</th>
                                 <th className='text-center font-semibold uppercase'>Delete</th>
                                 <th className='text-center font-semibold uppercase'>Pay</th>
                             </tr>
@@ -71,12 +70,14 @@ const SelectedClasses = () => {
                                             {s.lecture.instructor}
                                         </td>
                                         <td className='text-center'>
-                                            <button onClick={() => handleDeleteLecture(s._id)} className='btn text-white bg-red-600 hover:bg-red-700'><FaTrashAlt /></button>
+                                            <button onClick={() => handleDeleteLecture(s._id)} className='btn text-white bg-red-600 hover:bg-red-700'>
+                                                X
+                                            </button>
                                         </td>
                                         <td className='text-center'>
                                             <Link
                                                 to={{
-                                                    pathname: `/dashboard/studentClasses/pay/${s._id}`,
+                                                    pathname: `/dashboard/selecteddonation/pay/${s._id}`,
                                                 }}
                                             >
                                                 <button className='btn text-white bg-green-500 hover:bg-green-600' >Pay</button>

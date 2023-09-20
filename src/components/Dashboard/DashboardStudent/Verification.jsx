@@ -9,8 +9,8 @@ import { motion } from 'framer-motion';
 
 
 
-const AddNewClass = () => {
-    useTitle('Request For Fund')
+const Verification = () => {
+    useTitle('Verification')
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext);
@@ -20,29 +20,26 @@ const AddNewClass = () => {
         // Logic for creating a class
         setDisabled(true);
 
-        const { name, image, instructor, availableSeats, price, email, description } = data;
+        const { name, image, idCardNumber, phoneNumber, email } = data;
 
-        const lectureData = {
+        const verificationData = {
             email,
             name,
             image,
-            instructor,
-            description,
-            availableSeats: parseInt(availableSeats),
-            price: parseInt(price),
-            status: 'pending',
-            enrolled: 0
+            idCardNumber,
+            phoneNumber,
+            status: 'pending'
         };
 
-        axios.post('https://crowd-funding-server.vercel.app/classes', lectureData)
+        axios.post('https://crowd-funding-server.vercel.app/verification', verificationData)
             .then(res => {
                 // console.log(res);
                 if (res.data.acknowledged) {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Fund Request Successful!!',
+                        title: 'Successful',
                         footer: 'Wait until Admin Approve!!',
-                        text: 'Fund will be pending',
+                        text: 'Verification Pending',
                     })
                     setDisabled(false);
                 }
@@ -65,55 +62,44 @@ const AddNewClass = () => {
             exit={{ x: window.innerWidth }}
         >
             <section className='mx-72 min-h-screen my-20'>
-                <h2 className='text-3xl text-center uppercase'>Request for Fund</h2>
+                <h2 className='text-3xl text-center uppercase'>Want to be a fund raiser? Please fill this form!!</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="p-8 bg-white rounded shadow-md">
 
 
-                    <label className="mb-2 font-bold" htmlFor="name">Event Name</label>
+                    <label className="mb-2 font-bold" htmlFor="name">Full Name</label>
                     <div className="mb-4 shadow-lg">
                         <input {...register('name', { required: true })} className="w-full px-4 py-2 border rounded" />
                         {errors.name && <span className="text-red-500">This field is required</span>}
                     </div>
 
-                    <label className="block mb-2 font-bold" htmlFor="image">Event Image</label>
+                    <label className="block mb-2 font-bold" htmlFor="image">Photo</label>
                     <div className="mb-4 shadow-lg">
                         <input {...register('image', { required: true })} className="w-full px-4 py-2 border rounded" />
                         {errors.image && <span className="text-red-500">This field is required</span>}
                     </div>
 
-                    <label className="block mb-2 font-bold" htmlFor="instructor">Fund Raiser's Name</label>
-                    <div className="mb-4 shadow-lg">
-                        <input value={user?.displayName} {...register('instructor',)} className="w-full px-4 py-2 border rounded" />
-                    </div>
-
-                    <label className="block mb-2 font-bold" htmlFor="instructor">Fund Raiser's Email</label>
+                    <label className="block mb-2 font-bold" htmlFor="instructor">Your Email</label>
                     <div className="mb-4 shadow-lg">
                         <input value={user?.email} {...register('email',)} className="w-full px-4 py-2 border rounded" />
                     </div>
 
-                    <label className="block mb-2 font-bold" htmlFor="availableSeats">Goal(Tk)</label>
+                    <label className="block mb-2 font-bold" htmlFor="idCardNumber">National ID/ Passport Number</label>
                     <div className="mb-4 shadow-lg">
-                        <input type="number" {...register('availableSeats', { required: true })} className="w-full px-4 py-2 border rounded" />
-                        {errors.availableSeats && <span className="text-red-500">This field is required</span>}
+                        <input type="number" {...register('idCardNumber', { required: true })} className="w-full px-4 py-2 border rounded" />
+                        {errors.idCardNumber && <span className="text-red-500">This field is required</span>}
                     </div>
 
-                    <label className="block mb-2 font-bold" htmlFor="price">Donation Money</label>
+                    <label className="block mb-2 font-bold" htmlFor="phoneNumber">Phone Number</label>
                     <div className="mb-4 shadow-lg">
-                        <input type="number" step="0.01" {...register('price', { required: true })} className="w-full px-4 py-2 border rounded" />
-                        {errors.price && <span className="text-red-500">This field is required</span>}
+                        <input type="number" step="0.01" {...register('phoneNumber', { required: true })} className="w-full px-4 py-2 border rounded" />
+                        {errors.phoneNumber && <span className="text-red-500">This field is required</span>}
                     </div>
 
-                    <label className="block mb-2 font-bold" htmlFor="description">Event Description</label>
-                    <div className="mb-4 shadow-lg">
-                        <input type="text" step="0.01" {...register('description', { required: true })} className="w-full px-4 py-2 border rounded" />
-                        {errors.description && <span className="text-red-500">This field is required</span>}
-                    </div>
-
-                    <button type="submit" disabled={disabled} className="btn text-white  bg-green-500 hover:bg-green-600">Add</button>
+                    <button type="submit" disabled={disabled} className="btn text-white  bg-green-500 hover:bg-green-600">Submit</button>
                 </form>
             </section>
         </motion.div>
     );
 };
 
-export default AddNewClass;
+export default Verification;

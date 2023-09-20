@@ -25,6 +25,7 @@ const DashboardHome = () => {
                         </div>
                         <div>
                             <h3 className='text-3xl mt-4 mb-10'>{user?.displayName}</h3>
+                            <h3 className='text-3xl mt-4 mb-10'>{user?.email}</h3>
                         </div>
                         <h1 className="mb-5 text-5xl font-bold">Welcome to Dashboard</h1>
                     </div>
