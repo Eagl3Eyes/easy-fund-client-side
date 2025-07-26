@@ -113,16 +113,6 @@ This project utilizes environment variables managed through Firebase.  Configura
 This application is deployed to Firebase Hosting.  Deployment instructions are not explicitly included but are implicitly handled through Firebase CLI.
 
 
-//## 🤝 Contributing
-
-//TODO: Add Contributing Guide
-
-
-//## 📄 License
-
-//TODO: Add License information
-
-
 ---
 
 <div align="center">
