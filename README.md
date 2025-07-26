@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Logo](TODO: Add project logo)
+![Logo](<img width="128" height="20" alt="image" src="https://github.com/user-attachments/assets/1455fa00-469f-43a4-852e-1fcf0d38691d" />)
 
 [![GitHub stars](https://img.shields.io/github/stars/Eagl3Eyes/easy-fund-client-side?style=for-the-badge)](https://github.com/Eagl3Eyes/easy-fund-client-side/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Eagl3Eyes/easy-fund-client-side?style=for-the-badge)](https://github.com/Eagl3Eyes/easy-fund-client-side/network)
